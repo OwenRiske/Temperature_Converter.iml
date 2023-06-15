@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #ed864a;}
+.s1 { color: #ebebeb;}
+.s2 { color: #ed864a; font-weight: bold;}
+.s3 { color: #7ec3e6;}
+.s4 { color: #54b33e;}
+.s5 { color: #33ccff; font-weight: bold;}
+</style>
+</head>
+<body bgcolor="#131314">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.company</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s2">;</span>
+
+
+<span class="s0">public class </span><span class="s1">Main {</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+
+
+        <span class="s3">//Comments</span>
+        <span class="s3">//sout = System.out.print();</span>
+
+
+
+
+        <span class="s1">System.out.println()</span><span class="s2">;</span>
+        <span class="s3">//Title Info</span>
+        <span class="s1">System.out.println()</span><span class="s2">;</span>
+        <span class="s1">System.out.print(</span><span class="s4">&quot;Welcome to the&quot;</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">System.out.print(</span><span class="s4">&quot;Temperature Converter&quot;</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">We use fahrenheit so you don't have to...&quot;</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">System.out.println(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Please enter a temperature. </span><span class="s0">\n</span><span class="s4">If you are using Fahrenheit put an F after.&quot;</span><span class="s1">)</span><span class="s2">;</span>
+
+        <span class="s3">//Get User input</span>
+        <span class="s1">Scanner INPUT = </span><span class="s0">new </span><span class="s1">Scanner(System.in)</span><span class="s2">;</span>
+        <span class="s1">String userTemp =INPUT.nextLine()</span><span class="s2">;</span><span class="s3">//take input from the user</span>
+        <span class="s0">double </span><span class="s1">temp = </span><span class="s5">0</span><span class="s2">;</span>
+
+        <span class="s3">//F to C (-40°F − 32) × 5/9 = -40°C</span>
+
+        <span class="s0">if </span><span class="s1">(userTemp.toLowerCase().contains(</span><span class="s4">&quot;f&quot;</span><span class="s1">)){</span>
+            <span class="s3">//Remove the F</span>
+
+            <span class="s1">userTemp=userTemp.replace(</span><span class="s4">&quot;f&quot;</span><span class="s2">,</span><span class="s4">&quot;&quot;</span><span class="s1">)</span><span class="s2">;</span>
+
+            <span class="s3">//Built in method inside Java Strings to replace characters</span>
+
+            <span class="s3">//Convert string to double</span>
+            <span class="s1">temp=Double.parseDouble(userTemp)</span><span class="s2">;</span>
+            <span class="s3">//convert F to C</span>
+            <span class="s1">System.out.println(Converters.convertFtoC(temp) + </span><span class="s4">&quot;C&quot;</span><span class="s1">)</span><span class="s2">;</span>
+        <span class="s1">}</span>
+        <span class="s0">else if</span><span class="s1">(userTemp.toLowerCase().contains(</span><span class="s4">&quot;k&quot;</span><span class="s1">)){</span>
+            <span class="s3">//remove k</span>
+            <span class="s1">userTemp=userTemp.replace(</span><span class="s4">&quot;k&quot;</span><span class="s2">,</span><span class="s4">&quot;&quot;</span><span class="s1">)</span><span class="s2">;</span>
+            <span class="s3">//convert string to double</span>
+            <span class="s1">temp=Double.parseDouble(userTemp)</span><span class="s2">;</span>
+            <span class="s3">// convert K to C</span>
+            <span class="s1">System.out.println(Converters.convertKtoC(temp) + </span><span class="s4">&quot;C&quot;</span><span class="s1">)</span><span class="s2">;</span>
+            <span class="s1">System.out.println(Converters.convertCtoF(Converters.convertKtoC(temp)) + </span><span class="s4">&quot;F&quot;</span><span class="s1">)</span><span class="s2">;</span>
+
+
+
+        <span class="s1">}</span>
+
+        <span class="s0">else </span><span class="s1">{</span>
+
+            <span class="s0">if</span><span class="s1">(userTemp.toLowerCase().contains(</span><span class="s4">&quot;c&quot;</span><span class="s1">)){</span>
+            <span class="s3">//Remove the c</span>
+                <span class="s1">userTemp=userTemp.replace(</span><span class="s4">&quot;c&quot;</span><span class="s2">, </span><span class="s4">&quot;&quot;</span><span class="s1">)</span><span class="s2">;</span>
+            <span class="s1">}</span>
+
+            <span class="s3">//convert string to double</span>
+            <span class="s1">temp=Double.parseDouble(userTemp)</span><span class="s2">;</span>
+            <span class="s3">//convert C to F</span>
+            <span class="s1">System.out.println(Converters.convertCtoF(temp))</span><span class="s2">;</span>
+
+        <span class="s1">}</span>
+
+
+
+
+
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+</pre>
+</body>
+</html>
